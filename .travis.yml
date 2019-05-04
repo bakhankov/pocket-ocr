@@ -5,7 +5,8 @@ python:
 before_install:
   - sudo apt-get install -y tesseract-ocr
 install:
-  - pip install aiohttp aiofiles codecov nose pytesseract
-script: nosetests --with-coverage
+  - pip install -r requirements.txt
+  - pip install codecov
+script: nosetests --with-coverage --cover-package=tests
 after_success:
   - codecov
