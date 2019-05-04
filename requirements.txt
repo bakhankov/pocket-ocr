@@ -1,0 +1,4 @@
+aiohttp
+aiofiles
+nose
+pytesseract
