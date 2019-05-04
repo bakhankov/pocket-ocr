@@ -4,4 +4,8 @@ python:
   - "3.7"
 before_install:
   - sudo apt-get install -y tesseract-ocr
-script: nosetests
+install:
+  - pip install codecov
+script: nosetests --with-coverage
+after_success:
+  - codecov
