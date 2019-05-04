@@ -17,9 +17,8 @@ class WebApp(web.Application):
         url = data.get('url')
         if not url:
             return web.HTTPError()
-
         source = await self.http_client.get(url)
-        image = await self.image.open_from_bytes(source)
+        image = self.image.open_from_bytes(source)
         text = await self.ocr_api.image_to_string(image)
         return web.Response(text=text)
 
