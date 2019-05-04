@@ -7,6 +7,7 @@ before_install:
 install:
   - pip install -r requirements.txt
   - pip install codecov
-script: nosetests --with-coverage
+script: nosetests --with-coverage --cover-package=cli --cover-package=httpapi \
+--cover-package=httpclient --cover-package=image --cover-package=ocrapi
 after_success:
-  - codecov -i
+  - codecov
